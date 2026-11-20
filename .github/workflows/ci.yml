@@ -1,0 +1,38 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ci-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: internal links resolve
+        run: |
+          set -euo pipefail
+          fail=0
+          # every local href/src in index.html must exist on disk
+          for ref in $(grep -oE '(href|src)="[^"#]+"' index.html \
+            | sed -E 's/(href|src)="//; s/"$//' \
+            | grep -vE '^(https?:|mailto:|//)' | sort -u); do
+            [ -f "$ref" ] || { echo "MISSING: $ref"; fail=1; }
+          done
+          # anchor targets referenced by nav must exist
+          for anchor in $(grep -oE 'href="#[a-z-]+"' index.html \
+            | sed -E 's/href="#//; s/"$//' | sort -u); do
+            grep -q "id=\"$anchor\"" index.html || { echo "MISSING ANCHOR: #$anchor"; fail=1; }
+          done
+          exit $fail
+
+      - name: brand tokens present
+        run: |
+          set -euo pipefail
+          for token in '#F3EEE4' '#1C1B19' '#B8402A'; do
+            grep -qi "$token" styles.css || { echo "MISSING BRAND TOKEN: $token"; exit 1; }
+          done

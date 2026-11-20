@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idiomark — the personality format for AI</title>
+  <meta name="description" content="A portable .idiomark file capturing how a person speaks and thinks, so AI can sound like them and understand them.">
+  <link rel="icon" type="image/svg+xml" href="assets/idiomark-favicon-16.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:title" content="Idiomark — the personality format for AI">
+  <meta property="og:description" content="A portable .idiomark file capturing how a person speaks and thinks, so AI can sound like them and understand them.">
+  <meta property="og:url" content="https://idiomark.org">
+  <meta property="og:type" content="website">
+</head>
+<body>
+
+<header class="masthead reveal">
+  <a class="lockup" href="/" aria-label="Idiomark home">
+    <img src="assets/idiomark-lockup.svg" alt="Idiomark" width="244" height="55">
+  </a>
+  <nav class="mono">
+    <a href="#why">why</a>
+    <a href="#format">format</a>
+    <a href="#packages">packages</a>
+    <a href="#spec">spec</a>
+    <a href="https://github.com/idiomark/idiomark" class="nav-github">github&nbsp;↗</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- §0 hero -->
+  <section class="hero">
+    <div class="hero-text reveal">
+      <p class="kicker mono">file format · open · portable</p>
+      <h1>AI sounds like<br>everyone. It should<br>sound like <em>you</em>.</h1>
+      <p class="lede">A <code class="mono">.idiomark</code> file captures how a person speaks and
+        thinks — voice, tone, writing patterns, values, cognitive style — so AI systems
+        can sound like <em>that person</em> and understand them, instead of sounding generic.</p>
+      <div class="hero-actions">
+        <a class="btn btn-seal" href="https://github.com/idiomark/idiomark">Read the spec</a>
+        <a class="btn btn-ghost" href="#format">How it works</a>
+      </div>
+    </div>
+
+    <figure class="artifact reveal" aria-label="Example .idiomark file">
+      <figcaption class="mono">fig.&nbsp;1 — a portable profile</figcaption>
+      <pre class="mono"><span class="c">; jordan.idiomark</span>
+<span class="k">[voice]</span>
+<span class="k">tone</span>        <span class="p">=</span> <span class="v">direct, dry</span>
+<span class="k">hedging</span>     <span class="p">=</span> <span class="v">low</span>
+<span class="k">
+[writing]</span>
+<span class="k">sentence</span>    <span class="p">=</span> <span class="v">short. fragments welcome.</span>
+<span class="k">emoji</span>       <span class="p">=</span> <span class="v">never</span>
+<span class="k">
+[values]</span>
+<span class="k">candor</span>      <span class="p">=</span> <span class="v">core</span>
+<span class="k">brevity</span>     <span class="p">=</span> <span class="v">core</span></pre>
+    </figure>
+  </section>
+
+  <!-- §1 why -->
+  <section id="why" class="section reveal">
+    <div class="margin-note mono">§1 · why</div>
+    <h2>Models generate beige.</h2>
+    <p>Prompting for a persona every time doesn't scale and doesn't travel — what works
+      on one model drifts on another. A <code class="mono">.idiomark</code> file is a durable,
+      versioned, portable personality profile that <em>any</em> system can consume.
+      One file. Every model. Still you.</p>
+  </section>
+
+  <!-- §2 format -->
+  <section id="format" class="section reveal">
+    <div class="margin-note mono">§2 · format</div>
+    <h2>Write it once. Carry it everywhere.</h2>
+    <ol class="steps">
+      <li>
+        <span class="step-no mono">01</span>
+        <h3>Describe</h3>
+        <p>Capture voice, tone, writing patterns, values and cognitive style in plain,
+          human-readable INI. No lock-in, no black box.</p>
+      </li>
+      <li>
+        <span class="step-no mono">02</span>
+        <h3>Validate</h3>
+        <p>The loader and validator check your profile against the stable v1 schema —
+          v2 features ship experimentally alongside, never breaking readers.</p>
+      </li>
+      <li>
+        <span class="step-no mono">03</span>
+        <h3>Apply</h3>
+        <p>Hand the file to any consumer — SDK, CLI, MCP server, inference layer —
+          and responses come back sounding like the person it describes.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- §3 packages -->
+  <section id="packages" class="section reveal">
+    <div class="margin-note mono">§3 · packages</div>
+    <h2>The toolkit.</h2>
+    <ul class="pkg-table">
+      <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/core">
+        <span class="mono pkg-name">@idiomark/core</span>
+        <span class="pkg-desc">Schema, loader, reader, validator, generator</span>
+        <span class="mono pkg-arrow">↗</span></a></li>
+      <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/sdk">
+        <span class="mono pkg-name">@idiomark/sdk</span>
+        <span class="pkg-desc">High-level API for consuming profiles</span>
+        <span class="mono pkg-arrow">↗</span></a></li>
+      <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/cli">
+        <span class="mono pkg-name">@idiomark/cli</span>
+        <span class="pkg-desc"><code class="mono">idiomark</code> command-line tool</span>
+        <span class="mono pkg-arrow">↗</span></a></li>
+      <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/inference">
+        <span class="mono pkg-name">@idiomark/inference</span>
+        <span class="pkg-desc">Apply a profile to AI responses</span>
+        <span class="mono pkg-arrow">↗</span></a></li>
+      <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/mcp">
+        <span class="mono pkg-name">@idiomark/mcp</span>
+        <span class="pkg-desc">MCP server exposing profiles to agents</span>
+        <span class="mono pkg-arrow">↗</span></a></li>
+      <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/projectors">
+        <span class="mono pkg-name">@idiomark/projectors</span>
+        <span class="pkg-desc">Project a profile onto tasks</span>
+        <span class="mono pkg-arrow">↗</span></a></li>
+    </ul>
+  </section>
+
+  <!-- §4 spec -->
+  <section id="spec" class="section reveal">
+    <div class="margin-note mono">§4 · spec</div>
+    <h2>Open, versioned, pre-1.0.</h2>
+    <p>MIT licensed. The stable core schema lives in <a href="https://github.com/idiomark/idiomark/tree/main/spec/v1"><code class="mono">spec/v1</code></a>;
+      draft v2 — Big Five, linguistic markers, cognitive patterns — develops openly in
+      <a href="https://github.com/idiomark/idiomark/tree/main/spec/v2"><code class="mono">spec/v2</code></a>.
+      Breaking changes are possible before v1 is locked.</p>
+    <div class="status-row">
+      <span class="chip chip-stable mono">v1 · stable</span>
+      <span class="chip chip-draft mono">v2 · draft</span>
+      <span class="chip chip-license mono">MIT</span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-mark">
+    <img src="assets/idiomark-mark-reverse.svg" alt="" width="64" height="64">
+  </div>
+  <div class="footer-meta mono">
+    <span>idiomark.org</span>
+    <span><a href="https://github.com/idiomark">github.com/idiomark</a></span>
+    <span>MIT © Jordan Newell</span>
+  </div>
+</footer>
+
+</body>
+</html>
