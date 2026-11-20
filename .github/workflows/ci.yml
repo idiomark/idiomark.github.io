@@ -20,7 +20,7 @@ jobs:
           # every local href/src in index.html must exist on disk
           for ref in $(grep -oE '(href|src)="[^"#]+"' index.html \
             | sed -E 's/(href|src)="//; s/"$//' \
-            | grep -vE '^(https?:|mailto:|//)' | sort -u); do
+            | grep -vE '^(https?:|mailto:|//|/$)' | sort -u); do
             [ -f "$ref" ] || { echo "MISSING: $ref"; fail=1; }
           done
           # anchor targets referenced by nav must exist
