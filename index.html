@@ -54,6 +54,7 @@
     </div>
 
     <figure class="artifact reveal" aria-label="Example .idiomark file">
+      <div class="stamp mono" aria-hidden="true">open spec · v1</div>
       <figcaption class="mono">fig.&nbsp;1 — a portable profile</figcaption>
       <pre class="mono"><span class="c">; jordan.idiomark</span>
 <span class="k">[voice]</span>
@@ -71,7 +72,7 @@
   </section>
 
   <!-- §1 why -->
-  <section id="why" class="section reveal">
+  <section id="why" class="section scroll-reveal">
     <div class="margin-note mono">§1 · why</div>
     <h2>Models generate beige.</h2>
     <p>Prompting for a persona every time doesn't scale and doesn't travel — what works
@@ -81,7 +82,7 @@
   </section>
 
   <!-- §2 format -->
-  <section id="format" class="section reveal">
+  <section id="format" class="section scroll-reveal">
     <div class="margin-note mono">§2 · format</div>
     <h2>Write it once. Carry it everywhere.</h2>
     <ol class="steps">
@@ -107,31 +108,37 @@
   </section>
 
   <!-- §3 packages -->
-  <section id="packages" class="section reveal">
+  <section id="packages" class="section scroll-reveal">
     <div class="margin-note mono">§3 · packages</div>
     <h2>The toolkit.</h2>
     <ul class="pkg-table">
       <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/core">
+        <span class="mono pkg-idx">01</span>
         <span class="mono pkg-name">@idiomark/core</span>
         <span class="pkg-desc">Schema, loader, reader, validator, generator</span>
         <span class="mono pkg-arrow">↗</span></a></li>
       <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/sdk">
+        <span class="mono pkg-idx">02</span>
         <span class="mono pkg-name">@idiomark/sdk</span>
         <span class="pkg-desc">High-level API for consuming profiles</span>
         <span class="mono pkg-arrow">↗</span></a></li>
       <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/cli">
+        <span class="mono pkg-idx">03</span>
         <span class="mono pkg-name">@idiomark/cli</span>
         <span class="pkg-desc"><code class="mono">idiomark</code> command-line tool</span>
         <span class="mono pkg-arrow">↗</span></a></li>
       <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/inference">
+        <span class="mono pkg-idx">04</span>
         <span class="mono pkg-name">@idiomark/inference</span>
         <span class="pkg-desc">Apply a profile to AI responses</span>
         <span class="mono pkg-arrow">↗</span></a></li>
       <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/mcp">
+        <span class="mono pkg-idx">05</span>
         <span class="mono pkg-name">@idiomark/mcp</span>
         <span class="pkg-desc">MCP server exposing profiles to agents</span>
         <span class="mono pkg-arrow">↗</span></a></li>
       <li><a href="https://github.com/idiomark/idiomark/tree/main/packages/projectors">
+        <span class="mono pkg-idx">06</span>
         <span class="mono pkg-name">@idiomark/projectors</span>
         <span class="pkg-desc">Project a profile onto tasks</span>
         <span class="mono pkg-arrow">↗</span></a></li>
@@ -139,7 +146,7 @@
   </section>
 
   <!-- §4 spec -->
-  <section id="spec" class="section reveal">
+  <section id="spec" class="section scroll-reveal">
     <div class="margin-note mono">§4 · spec</div>
     <h2>Open, versioned, pre-1.0.</h2>
     <p>MIT licensed. The stable core schema lives in <a href="https://github.com/idiomark/idiomark/tree/main/spec/v1"><code class="mono">spec/v1</code></a>;
@@ -156,15 +163,38 @@
 </main>
 
 <footer class="footer">
-  <div class="footer-mark">
-    <img src="assets/idiomark-mark-reverse.svg" alt="" width="64" height="64">
+  <div class="footer-colophon">
+    <img src="assets/idiomark-mark-reverse.svg" alt="Idiomark mark" width="64" height="64">
+    <div>
+      <p class="colophon-title">Idiomark</p>
+      <p class="colophon-sub mono">The personality format for AI</p>
+    </div>
   </div>
   <div class="footer-meta mono">
-    <span>idiomark.org</span>
+    <span><a href="https://idiomark.org">idiomark.org</a></span>
     <span><a href="https://github.com/idiomark">github.com/idiomark</a></span>
-    <span>MIT © Jordan Newell</span>
+    <span class="colophon-note">Set in EB Garamond &amp; IBM Plex Mono · MIT · © 2026</span>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.scroll-reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in-view'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
 
 </body>
 </html>
