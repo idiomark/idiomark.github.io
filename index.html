@@ -56,19 +56,40 @@
 
     <figure class="artifact reveal" aria-label="Example .idiomark file">
       <div class="stamp mono" aria-hidden="true">open spec · v1</div>
-      <figcaption class="mono">fig.&nbsp;1 — a portable profile</figcaption>
-      <pre class="mono"><span class="c">; jordan.idiomark</span>
-<span class="k">[voice]</span>
-<span class="k">tone</span>        <span class="p">=</span> <span class="v">direct, dry</span>
-<span class="k">hedging</span>     <span class="p">=</span> <span class="v">low</span>
-<span class="k">
-[writing]</span>
-<span class="k">sentence</span>    <span class="p">=</span> <span class="v">short. fragments welcome.</span>
-<span class="k">emoji</span>       <span class="p">=</span> <span class="v">never</span>
-<span class="k">
-[values]</span>
-<span class="k">candor</span>      <span class="p">=</span> <span class="v">core</span>
-<span class="k">brevity</span>     <span class="p">=</span> <span class="v">core</span></pre>
+      <figcaption class="mono">fig.&nbsp;1 — jordan.idiomark</figcaption>
+      <pre class="mono"><span class="p">{</span>
+  <span class="k">"idiomark"</span><span class="p">:</span> <span class="v">"1.0.0"</span><span class="p">,</span>
+  <span class="k">"id"</span><span class="p">:</span> <span class="v">"idiomark_jordan"</span><span class="p">,</span>
+  <span class="k">"created"</span><span class="p">:</span> <span class="v">"2026-11-25T00:00:00Z"</span><span class="p">,</span>
+  <span class="k">"updated"</span><span class="p">:</span> <span class="v">"2026-11-25T00:00:00Z"</span><span class="p">,</span>
+  <span class="k">"metadata"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="k">"entity"</span><span class="p">:</span> <span class="p">{</span> <span class="k">"name"</span><span class="p">:</span> <span class="v">"Jordan"</span><span class="p">,</span> <span class="k">"type"</span><span class="p">:</span> <span class="v">"human"</span><span class="p">,</span>
+      <span class="k">"sources"</span><span class="p">:</span> <span class="p">[</span><span class="v">"github"</span><span class="p">,</span> <span class="v">"email"</span><span class="p">]</span> <span class="p">},</span>
+    <span class="k">"extraction"</span><span class="p">:</span> <span class="p">{</span> <span class="k">"date"</span><span class="p">:</span> <span class="v">"2026-11-25T00:00:00Z"</span><span class="p">,</span>
+      <span class="k">"sample_size"</span><span class="p">:</span> <span class="v">1200</span><span class="p">,</span>
+      <span class="k">"timeframe"</span><span class="p">:</span> <span class="p">{</span> <span class="k">"from"</span><span class="p">:</span> <span class="v">"2026-08-25T00:00:00Z"</span><span class="p">,</span>
+        <span class="k">"to"</span><span class="p">:</span> <span class="v">"2026-11-25T00:00:00Z"</span> <span class="p">}</span> <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="k">"personality"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="k">"voice"</span><span class="p">:</span> <span class="p">{</span> <span class="k">"tone"</span><span class="p">:</span> <span class="p">{</span> <span class="k">"primary"</span><span class="p">:</span> <span class="v">"direct"</span><span class="p">,</span>
+      <span class="k">"secondary"</span><span class="p">:</span> <span class="v">"dry"</span><span class="p">,</span> <span class="k">"confidence"</span><span class="p">:</span> <span class="v">0.87</span> <span class="p">},</span>
+      <span class="k">"formality"</span><span class="p">:</span> <span class="v">0.25</span><span class="p">,</span> <span class="k">"humor"</span><span class="p">:</span> <span class="v">0.55</span><span class="p">,</span> <span class="k">"sarcasm"</span><span class="p">:</span> <span class="v">0.6</span><span class="p">,</span>
+      <span class="k">"enthusiasm"</span><span class="p">:</span> <span class="v">0.3</span><span class="p">,</span> <span class="k">"directness"</span><span class="p">:</span> <span class="v">0.92</span> <span class="p">},</span>
+    <span class="k">"patterns"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="k">"sentence_length"</span><span class="p">:</span> <span class="p">{</span> <span class="k">"mean"</span><span class="p">:</span> <span class="v">9.4</span><span class="p">,</span> <span class="k">"stddev"</span><span class="p">:</span> <span class="v">4.1</span> <span class="p">},</span>
+      <span class="k">"emoji_usage"</span><span class="p">:</span> <span class="p">{</span> <span class="k">"frequency"</span><span class="p">:</span> <span class="v">"none"</span><span class="p">,</span>
+        <span class="k">"top_emojis"</span><span class="p">:</span> <span class="p">[]</span> <span class="p">},</span>
+      <span class="k">"punctuation"</span><span class="p">:</span> <span class="p">{</span> <span class="k">"exclamation_frequency"</span><span class="p">:</span> <span class="v">0.02</span><span class="p">,</span>
+        <span class="k">"question_frequency"</span><span class="p">:</span> <span class="v">0.08</span><span class="p">,</span>
+        <span class="k">"ellipsis_usage"</span><span class="p">:</span> <span class="v">"none"</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="k">"domains"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="k">"values"</span><span class="p">:</span> <span class="p">[{</span> <span class="k">"name"</span><span class="p">:</span> <span class="v">"candor"</span><span class="p">,</span> <span class="k">"sentiment"</span><span class="p">:</span> <span class="v">"positive"</span><span class="p">,</span>
+      <span class="k">"confidence"</span><span class="p">:</span> <span class="v">0.91</span> <span class="p">},</span> <span class="p">{</span> <span class="k">"name"</span><span class="p">:</span> <span class="v">"brevity"</span><span class="p">,</span>
+      <span class="k">"sentiment"</span><span class="p">:</span> <span class="v">"positive"</span><span class="p">,</span> <span class="k">"confidence"</span><span class="p">:</span> <span class="v">0.88</span> <span class="p">}],</span>
+    <span class="k">"knowledge"</span><span class="p">:</span> <span class="p">{</span> <span class="k">"frequent_terms"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="k">"topics"</span><span class="p">:</span> <span class="p">{</span> <span class="k">"primary"</span><span class="p">:</span> <span class="p">[</span><span class="v">"infrastructure"</span><span class="p">]</span> <span class="p">}</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></pre>
     </figure>
   </section>
 
@@ -91,7 +112,7 @@
         <span class="step-no mono">01</span>
         <h3>Describe</h3>
         <p>Capture voice, tone, writing patterns, values and cognitive style in plain,
-          human-readable INI. No lock-in, no black box.</p>
+          human-readable JSON. No lock-in, no black box.</p>
       </li>
       <li>
         <span class="step-no mono">02</span>
