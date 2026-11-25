@@ -214,9 +214,9 @@ code {
 }
 
 .artifact pre {
-  padding: 26px 28px 30px;
-  font-size: 0.92rem;
-  line-height: 1.75;
+  padding: 22px 24px 26px;
+  font-size: 0.8rem;
+  line-height: 1.6;
   overflow-x: auto;
 }
 
